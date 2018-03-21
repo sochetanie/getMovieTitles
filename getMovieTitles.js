@@ -1,14 +1,14 @@
 function getMovieTitles(substr) {
-    let currentPage = 1
+    let page = 1
     let URL = `https://jsonmock.hackerrank.com/api/movies/search/?Title=${substr}&page=`
     let urls = []
-    let totalPages = 0
+    let numOfPages = 0
     
-    fetch(URL+currentPage)
+    fetch(URL+page)
     .then(res=>res.json())
     .then(function(data) {
-        totalPages = data.total_pages
-        for (let i=1; i<=totalPages; i++ ){
+        numOfPages = data.total_pages
+        for (let i=1; i<=numOfPages; i++ ){
             urls.push(URL+i)
         }
         
